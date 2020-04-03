@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Area | Dashborad</title>
+  <title>Admin Area | Kirim SMS</title>
+  <!-- bootstrap -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- custom css -->
   <link rel="stylesheet" href="css/style.css">
+  <!-- bootstrap-table -->
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
   <!-- ionic-icon pack -->
-  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+  
 </head>
 <body>
   <!-- NVBAR -->
@@ -21,13 +27,13 @@
       <div class="collapse navbar-collapse" id="navbarColor03">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link active href="#">Dashboard <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="custom_sms.html">Kirim SMS</a>
+            <a class="nav-link active" href="#">Kirim SMS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="master_wp.html">Master WP</a>
+            <a class="nav-link" href="#">Master WP</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Setting</a>
@@ -52,8 +58,8 @@
   <section id="breadcrumb">
     <div class="container">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-        <!-- <li class="breadcrumb-item active">Library</li> -->
+        <li class="breadcrumb-item"><a href="#">Kirim SMS</a></li>
+        <li class="breadcrumb-item active">index</li>
       </ol>
     </div>
   </section>
@@ -64,11 +70,11 @@
       <div class="row">
         <div class="col-md-3 mb-3 list-menu">
           <list-group>
-            <a href="" class="list-group-item list-group-item-action active">
+            <a href="index.html" class="list-group-item list-group-item-action">
               <ion-icon name="apps-outline"></ion-icon> Dashboard
               <span></span>
             </a>
-            <a href="custom_sms.html" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action active">
               <ion-icon name="mail-outline"></ion-icon> Kirim SMS
               <span></span>
             </a>
@@ -96,27 +102,37 @@
         </div>
 
         <div class="col-md-9">
-          <!-- Website Overview -->
           <div class="card border-light mb-3">
             <div class="card-header text-white bg-info">
-              Overview
+              Kirim SMS
             </div>
             <div class="card-body">
-              <div class="row justify-content-center">
-                <div class="card card-box">
-                  <div class="card-body">
-                    <h2><ion-icon name="people-sharp" class="ion-icon-dark ion-icon-xl"></ion-icon> 500</h2>
-                    <h3>Total WP</h3>
-                  </div>
-                </div>
-
-                <div class="card card-box">
-                  <div class="card-body">
-                    <h2><ion-icon name="mail-sharp" class="ion-icon-dark ion-icon-xl"></ion-icon> 200</h2>
-                    <h3>Pesan Masuk</h3>
-                  </div>
+              <div id="toolbar">
+                <div class="form-inline" role="form">
+                  
+                  <button id="kirim" type="submit" class="btn btn-primary"><ion-icon name="paper-plane-outline"></ion-icon> Kirim SMS</button>
                 </div>
               </div>
+              <table 
+              id="table"
+              data-toggle="table"
+              data-locale="id-ID"
+              data-toolbar="#toolbar"
+              data-query-params="queryParams"
+              data-page-list="[5,10,25,50,100]"
+              data-buttons-class="primary"
+              >
+                <thead>
+                  <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="npwpd" data-sortable="true">NPWPD</th>
+                    <th data-field="nama" data-sortable="true">Nama Usaha</th>
+                    <th data-field="alamat" data-sortable="true">Alamat Usaha</th>
+                    <th data-field="nohp" data-sortable="true">No HP</th>
+                    <th data-field="aksi" >#</th>
+                  </tr>
+                </thead>
+              </table>
             </div>
           </div>          
 
@@ -129,10 +145,23 @@
 
   <!-- FOOTER -->
   <footer id="footer">
-    <p>Copyright &copy; PT. Mitra Prima Utamma 2020</p>   
+    <p>Copyright &copy; PT. Mitra Prima Utamma 2020</p>    
   </footer>
 
   <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
+  <script>
+    $('#table').bootstrapTable({
+      url: 'json/kontak.json',
+      pagination: true,
+      search: false,
+      undefinedText: 'N/A',
+      height: "400",
+      classes: "table table-hover table-striped table-borderless"
+    })
+  </script>
 </body>
 </html>
